@@ -10,6 +10,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Navbar as NavbarComponent,
   NavbarLeft,
+  NavbarCenter,
   NavbarRight,
 } from "@/components/ui/navbar";
 import Navigation from "@/components/ui/navigation";
@@ -50,7 +51,6 @@ export default function Navbar({
     { text: "Documentation", href: siteConfig.url },
   ],
   actions = [
-    { text: "Sign in", href: siteConfig.url, isButton: false },
     {
       text: "Get Started",
       href: siteConfig.url,
@@ -63,11 +63,10 @@ export default function Navbar({
   className,
 }: NavbarProps) {
   return (
-    <header className={cn("sticky top-0 z-50 -mb-4 px-4 pb-4", className)}>
-      <div className="fade-bottom bg-background/15 absolute left-0 h-24 w-full backdrop-blur-lg"></div>
+    <header className={cn("sticky top-0 z-50 -mb-4 px-4 pb-4 bg-transparent", className)}>
       <div className="max-w-container relative mx-auto">
-        <NavbarComponent>
-          <NavbarLeft>
+        <NavbarComponent className="relative flex items-center justify-between">
+          <NavbarLeft className="flex-1">
             <a
               href={homeUrl}
               className="flex items-center gap-2 text-xl font-bold"
@@ -75,9 +74,11 @@ export default function Navbar({
               {logo}
               {name}
             </a>
-            {showNavigation && (customNavigation || <Navigation />)}
           </NavbarLeft>
-          <NavbarRight>
+          <NavbarCenter className="absolute left-1/2 -translate-x-1/2">
+            {showNavigation && (customNavigation || <Navigation />)}
+          </NavbarCenter>
+          <NavbarRight className="flex-1 justify-end">
             {actions.map((action, index) =>
               action.isButton ? (
                 <Button

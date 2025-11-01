@@ -47,17 +47,17 @@ interface NavigationProps {
 export default function Navigation({
   menuItems = [
     {
-      title: "Getting started",
+      title: "Home",
+      isLink: true,
+      href: "https://www.launchuicomponents.com/",
+    },
+    {
+      title: "About",
       content: "default",
     },
     {
       title: "Components",
       content: "components",
-    },
-    {
-      title: "Documentation",
-      isLink: true,
-      href: "https://www.launchuicomponents.com/",
     },
   ],
   components = [
