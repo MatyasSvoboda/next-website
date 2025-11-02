@@ -52,7 +52,7 @@ export default function Navbar({
   ],
   actions = [
     {
-      text: "Get Started",
+      text: "Let's Talk",
       href: siteConfig.url,
       isButton: true,
       variant: "default",
@@ -139,3 +139,4 @@ export default function Navbar({
     </header>
   );
 }
+

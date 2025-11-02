@@ -16,7 +16,7 @@ export const AuroraBackground = ({
   return (
     <div
       className={cn(
-        "transition-bg flex min-h-screen flex-col items-center justify-center bg-background text-foreground",
+        "transition-bg flex min-h-screen flex-col items-start justify-center bg-background text-foreground",
         className,
       )}
       {...props}

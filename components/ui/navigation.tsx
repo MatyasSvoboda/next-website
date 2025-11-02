@@ -103,15 +103,15 @@ export default function Navigation({
   logoHref = "https://www.launchuicomponents.com/",
   introItems = [
     {
-      title: "Introduction",
+      title: "Services",
       href: "https://www.launchuicomponents.com/",
       description:
-        "Re-usable components built using Radix UI and Tailwind CSS.",
+        "Choose the service you need right now.",
     },
     {
-      title: "Installation",
+      title: "Pricing",
       href: "https://www.launchuicomponents.com/",
-      description: "How to install dependencies and structure your app.",
+      description: "Read the information about the pricing plan and write to us for more details.",
     },
     {
       title: "Typography",
