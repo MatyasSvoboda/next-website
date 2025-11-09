@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-import LaunchUI from "../../logos/launch-ui";
+import Vizee from "../../logos/vizee";
 import { Button, buttonVariants } from "../../ui/button";
 import {
   Navbar as NavbarComponent,
@@ -40,8 +40,8 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  logo = <LaunchUI />,
-  name = "Launch UI",
+  logo = <Vizee />,
+  name = "Vizee",
   homeUrl = "https://www.launchuicomponents.com/",
   mobileLinks = [
     { text: "Getting Started", href: "https://www.launchuicomponents.com/" },

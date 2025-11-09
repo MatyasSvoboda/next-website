@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import LaunchUI from "@/components/logos/launch-ui";
+import Vizee from "@/components/logos/vizee";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Navbar as NavbarComponent,
@@ -42,8 +42,8 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  logo = <LaunchUI />,
-  name = "Launch UI",
+  logo = <Vizee />,
+  name = "Vizee",
   homeUrl = siteConfig.url,
   mobileLinks = [
     { text: "Getting Started", href: siteConfig.url },
@@ -55,7 +55,7 @@ export default function Navbar({
       text: "Let's Talk",
       href: siteConfig.url,
       isButton: true,
-      variant: "default",
+      variant: "rounded",
     },
   ],
   showNavigation = true,
@@ -84,6 +84,8 @@ export default function Navbar({
                 <Button
                   key={index}
                   variant={action.variant || "default"}
+                  size="lg"
+                  className={action.variant === "rounded" ? "px-6 py-3" : ""}
                   asChild
                 >
                   <a href={action.href}>
