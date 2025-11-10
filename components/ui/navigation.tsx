@@ -7,6 +7,7 @@ import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 import LaunchUI from "../logos/launch-ui";
+import Vizee from "../logos/vizee";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -97,9 +98,9 @@ export default function Navigation({
         "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
     },
   ],
-  logo = <LaunchUI />,
-  logoTitle = "Launch UI",
-  logoDescription = "Landing page template built with React, Shadcn/ui and Tailwind that you can copy/paste into your project.",
+  logo = <Vizee />,
+  logoTitle = "Vizee",
+  logoDescription = "Vizee is a studio for creating and boosting your business look.",
   logoHref = "https://www.launchuicomponents.com/",
   introItems = [
     {
