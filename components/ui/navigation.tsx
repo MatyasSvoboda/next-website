@@ -57,45 +57,45 @@ export default function Navigation({
       content: "default",
     },
     {
-      title: "Components",
+      title: "Projects",
       content: "components",
     },
   ],
   components = [
     {
-      title: "Alert Dialog",
-      href: "/docs/primitives/alert-dialog",
+      title: "Karolína Cudlínová",
+      href: "www.karolina-fitness.cz",
       description:
-        "A modal dialog that interrupts the user with important content and expects a response.",
+        "Web Design for a fitness coach",
     },
     {
-      title: "Hover Card",
-      href: "/docs/primitives/hover-card",
+      title: "Pražský Golfový Klub",
+      href: "",
       description:
-        "For sighted users to preview content available behind a link.",
+        "Web Design concept for a golf club",
     },
     {
-      title: "Progress",
-      href: "/docs/primitives/progress",
+      title: "YXO Market",
+      href: "www.yxomarket.com",
       description:
-        "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+        "E-Commerce for CS:GO items",
     },
     {
-      title: "Scroll-area",
-      href: "/docs/primitives/scroll-area",
-      description: "Visually or semantically separates content.",
+      title: "For Classmates",
+      href: "",
+      description: "Design concept for Course Detail page",
     },
     {
-      title: "Tabs",
-      href: "/docs/primitives/tabs",
+      title: "Clarity",
+      href: "",
       description:
-        "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+        "App design for boost your productivity",
     },
     {
-      title: "Tooltip",
+      title: "Filmoteka",
       href: "/docs/primitives/tooltip",
       description:
-        "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+        "Web App Development for a film library",
     },
   ],
   logo = <Vizee />,
