@@ -1,5 +1,6 @@
 import Collab from "@/components/sections/collab/Collab";
 import Hero from "@/components/sections/hero/Hero";
+import Projects from "@/components/sections/projects/Projects";
 import Services from "@/components/sections/services/Services";
 
 export default function Home() {
@@ -8,5 +9,6 @@ export default function Home() {
     <Hero />
     <Collab />
     <Services />
+    <Projects />
   </>);
 }

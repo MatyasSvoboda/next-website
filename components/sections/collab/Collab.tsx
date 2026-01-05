@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Collab() {
   return (
-    <div className="min-h-screen bg-[#ffff] py-32 px-8 md:px-16 lg:px-24">
+    <div className="bg-[#ffff] py-32 px-8 md:px-16 lg:px-24">
         <div className="max-w-[1400px] mx-auto">
             <div className="flex flex-col md:flex-row md:items-start justify-between">
                 {/* Label vlevo nahoře */}

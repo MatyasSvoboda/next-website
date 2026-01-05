@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 type TextTone = "dark" | "light";
 
@@ -143,12 +144,16 @@ function ServiceCardView({ card }: { card: ServiceCard }) {
 
 export default function Services() {
   return (
-    <section className="bg-white">
-      <div className="mx-auto max-w-[1400px]">
-        <div className="mb-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-light tracking-[-0.02em] text-black/90">
+    <section className="bg-white py-24 px-8 md:px-16 lg:px-24">
+      <div className="mx-auto max-w-[1200px]">
+        {/* Header matched to Projects style */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-20">
+          <h2 className="text-4xl md:text-5xl font-normal tracking-tight text-black">
             Naše služby
           </h2>
+          <Button variant="rounded" size="lg" className="w-fit px-8 py-4 text-[13px] font-medium tracking-normal normal-case">
+            Zobrazit všechny balíčky
+          </Button>
         </div>
 
         <div className="flex justify-center">
