@@ -1,134 +1,139 @@
 "use client";
 
-import React, { useState } from "react";
-import { ArrowDownLeft, ArrowUpRight } from "lucide-react";
+import React from "react";
 
-interface Service {
+type TextTone = "dark" | "light";
+
+interface ServiceCard {
   id: string;
   title: string;
   description: string;
+  contributors: number;
+  gradientClass: string; // tailwind gradient classes
+  tone: TextTone;
 }
 
-const services: Service[] = [
+const cards: ServiceCard[] = [
   {
     id: "apps",
-    title: "Aplikace.",
-    description: "Chcete mít vlastní app v App Store / Google Play? Nebo vás snad víc láká Apple TV app? Maličkost.",
+    title: "Aplikace",
+    description:
+      "Chcete mít vlastní app v App Store / Google Play? Nebo vás snad víc láká Apple TV app? Maličkost.",
+    contributors: 8,
+    gradientClass: "from-sky-200 via-sky-300 to-fuchsia-300",
+    tone: "dark",
   },
   {
     id: "web-apps",
-    title: "Web Apps.",
-    description: "Sofistikovaná webová platforma, která pokryje díru na trhu, kterou vidíte jen vy? Pojďme to postavit..",
+    title: "Web Apps",
+    description:
+      "Sofistikovaná webová platforma, která pokryje díru na trhu, kterou vidíte jen vy? Pojďme to postavit.",
+    contributors: 2,
+    // podobné detailu: tmavá horní část -> modrá spodní část
+    gradientClass: "from-[#2b0603] via-[#3b0b06] to-[#2f6fae]",
+    tone: "light",
   },
   {
-    id: "weby/e-shopy",
-    title: "Weby / E-shopy.",
-    description: "Naprostá klasika digitální tvorby. Produkt na kterém začínal snad každý z nás.",
+    id: "weby-e-shopy",
+    title: "Weby / E‑shopy",
+    description:
+      "Naprostá klasika digitální tvorby. Produkt na kterém začínal snad každý z nás.",
+    contributors: 5,
+    gradientClass: "from-yellow-200 via-yellow-200 to-orange-400",
+    tone: "dark",
   },
   {
-    id: "creative-acceleration",
-    title: "Creative acceleration.",
-    description: "Speed up your creative process and deliver faster results.",
-  },
-  {
-    id: "positioning",
-    title: "Positioning.",
-    description: "Establish your unique position in the market and stand out.",
-  },
-  {
-    id: "leadership-enablement",
-    title: "Leadership enablement.",
-    description: "Empower your leaders to drive transformation and growth.",
+    id: "product-design",
+    title: "Product Design",
+    description:
+      "Produkt na kterém začínal snad každý z nás.",
+    contributors: 3,
+    gradientClass: "from-violet-300 via-fuchsia-300 to-rose-300",
+    tone: "dark",
   },
 ];
 
-export default function Services() {
-  const [expandedService, setExpandedService] = useState<string | null>(
-    "strategic-clarity"
-  );
+function contributorsLabel(n: number) {
+  if (n === 1) return "přispěvatel";
+  if (n >= 2 && n <= 4) return "přispěvatelé";
+  return "přispěvatelů";
+}
 
-  const handleServiceClick = (serviceId: string) => {
-    setExpandedService(expandedService === serviceId ? null : serviceId);
-  };
+function AvatarStack({ tone }: { tone: TextTone }) {
+  const ring = tone === "light" ? "ring-white/80" : "ring-black/15";
+  const border = tone === "light" ? "border-white/80" : "border-black/10";
+
+  // Faux avatars – blíž „profilovkám“ z detailu (gradient + fotko-like tečka)
+  return (
+    <div className="flex -space-x-2">
+      <div
+        className={[
+          "size-9 rounded-full border-2",
+          border,
+          "bg-gradient-to-br from-orange-300 via-pink-400 to-indigo-400",
+          "shadow-sm",
+        ].join(" ")}
+      />
+      <div
+        className={[
+          "size-9 rounded-full border-2",
+          border,
+          "bg-white/95",
+          "grid place-items-center",
+          "shadow-sm",
+        ].join(" ")}
+      >
+        <div className={["size-4 rounded-full bg-black/80 ring-2", ring].join(" ")} />
+      </div>
+    </div>
+  );
+}
+
+function ServiceCardView({ card }: { card: ServiceCard }) {
+  const toneText = card.tone === "light" ? "text-white" : "text-black";
+  const descText = card.tone === "light" ? "text-white/85" : "text-black/75";
+  const glow = card.tone === "light" ? "shadow-black/20" : "shadow-black/5";
 
   return (
-    <div className="min-h-screen bg-[#f5f5f5] py-32 px-8 md:px-16 lg:px-24">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-          {/* Left Section - Services Grid */}
-          <div className="flex-1 lg:flex-[2]">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-12 tracking-[-0.02em]">
-              Our services.
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {services.map((service) => {
-                const isExpanded = expandedService === service.id;
-                return (
-                  <div
-                    key={service.id}
-                    onClick={() => handleServiceClick(service.id)}
-                    className={`
-                      relative p-6 md:p-8 cursor-pointer transition-all duration-300
-                      ${
-                        isExpanded
-                          ? "bg-black text-white"
-                          : "bg-white text-black hover:bg-gray-50"
-                      }
-                    `}
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <h3
-                          className={`text-xl md:text-2xl font-semibold mb-3 ${
-                            isExpanded ? "text-white" : "text-black"
-                          }`}
-                        >
-                          {service.title}
-                        </h3>
-                        {isExpanded && (
-                          <p className="text-white/90 text-base md:text-lg leading-relaxed">
-                            {service.description}
-                          </p>
-                        )}
-                      </div>
-                      <div className="flex-shrink-0">
-                        {isExpanded ? (
-                          <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
-                            <ArrowUpRight className="w-4 h-4 text-black" />
-                          </div>
-                        ) : (
-                          <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
-                            <ArrowDownLeft className="w-4 h-4 text-white" />
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+    <div className="group relative w-[280px] md:w-[320px] lg:w-[340px]">
+      {/* The Stack - White cards underneath with slight offsets */}
+      <div className="absolute inset-0 translate-y-2 translate-x-1 rotate-[2deg] rounded-[32px] bg-white shadow-sm transition-transform duration-500 group-hover:translate-y-3 group-hover:translate-x-2 group-hover:rotate-[3deg]" />
+      <div className="absolute inset-0 translate-y-1 translate-x-0.5 rotate-[-1.5deg] rounded-[32px] bg-white shadow-md transition-transform duration-500 group-hover:translate-y-1.5 group-hover:translate-x-1 group-hover:rotate-[-2.5deg]" />
 
-          {/* Right Section - Text and CTA */}
-          <div className="flex-1 lg:flex-[1] lg:max-w-md">
-            <div className="sticky top-32">
-              <p className="text-black/80 text-base md:text-lg leading-relaxed mb-8">
-                Every transformation starts with the right foundations. These are
-                the capabilities we use to help you sharpen your strategy, align
-                your teams, and create market momentum that lasts.
-              </p>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 text-black hover:text-black/80 transition-colors group"
-              >
-                <span className="text-base md:text-lg font-medium">
-                  Talk to us
-                </span>
-                <div className="w-10 h-10 bg-[#ffb3c1] rounded-full flex items-center justify-center group-hover:bg-[#ff9db0] transition-colors">
-                  <ArrowUpRight className="w-4 h-4 text-black" />
-                </div>
-              </a>
-            </div>
+      {/* Main colored card on top */}
+      <div
+        className={[
+          "relative rounded-[32px] p-6 md:p-7",
+          "bg-gradient-to-b",
+          card.gradientClass,
+          "transition-all duration-500 ease-out",
+          "shadow-lg",
+          glow,
+          "group-hover:-translate-y-2 group-hover:shadow-xl",
+          "min-h-[320px] md:min-h-[360px]",
+          "flex flex-col justify-between overflow-hidden",
+        ].join(" ")}
+      >
+        <div>
+          <h3
+            className={[
+              toneText,
+              "text-[32px] md:text-[40px] font-light leading-[1.05] tracking-[-0.03em] whitespace-pre-line",
+            ].join(" ")}
+          >
+            {card.title.replace(" / ", " /\n")}
+          </h3>
+          <p className={[descText, "mt-4 text-[15px] leading-snug font-normal"].join(" ")}>
+            {card.description}
+          </p>
+        </div>
+
+        <div className="relative z-10">
+          <div className="flex items-center gap-3">
+            <AvatarStack tone={card.tone} />
+            <span className={[descText, "text-[15px] font-medium"].join(" ")}>
+              {card.contributors} {contributorsLabel(card.contributors)}
+            </span>
           </div>
         </div>
       </div>
@@ -136,3 +141,24 @@ export default function Services() {
   );
 }
 
+export default function Services() {
+  return (
+    <section className="bg-white">
+      <div className="mx-auto max-w-[1400px]">
+        <div className="mb-16 text-center">
+          <h2 className="text-3xl md:text-4xl font-light tracking-[-0.02em] text-black/90">
+            Naše služby
+          </h2>
+        </div>
+
+        <div className="flex justify-center">
+          <div className="flex gap-6 md:gap-8 overflow-x-auto pb-16 px-4 pt-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {cards.map((card) => (
+              <ServiceCardView key={card.id} card={card} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

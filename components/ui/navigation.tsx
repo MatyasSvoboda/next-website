@@ -48,16 +48,16 @@ interface NavigationProps {
 export default function Navigation({
   menuItems = [
     {
-      title: "Home",
+      title: "Domů",
       isLink: true,
-      href: "https://www.launchuicomponents.com/",
+      href: "./",
     },
     {
-      title: "About",
+      title: "O nás",
       content: "default",
     },
     {
-      title: "Projects",
+      title: "Projekty",
       content: "components",
     },
   ],
@@ -66,36 +66,36 @@ export default function Navigation({
       title: "Karolína Cudlínová",
       href: "www.karolina-fitness.cz",
       description:
-        "Web Design for a fitness coach",
+        "Vývoj webu pro fitness trenérku.",
     },
     {
       title: "Pražský Golfový Klub",
       href: "",
       description:
-        "Web Design concept for a golf club",
+        "Koncept webu pro golfový klub.",
     },
     {
       title: "YXO Market",
       href: "www.yxomarket.com",
       description:
-        "E-Commerce for CS:GO items",
+        "E-Shop řešení pro CS:GO itemy.",
     },
     {
       title: "For Classmates",
       href: "",
-      description: "Design concept for Course Detail page",
+      description: "Koncept designu detailu kurzu na webové aplikaci.",
     },
     {
       title: "Clarity",
       href: "",
       description:
-        "App design for boost your productivity",
+        "Design appky, které zvýší tvou produktivitu.",
     },
     {
       title: "Filmoteka",
-      href: "/docs/primitives/tooltip",
+      href: "",
       description:
-        "Web App Development for a film library",
+        "Webová aplikace pro ukládání filmů.",
     },
   ],
   logo = <Vizee />,
@@ -104,10 +104,10 @@ export default function Navigation({
   logoHref = "https://www.launchuicomponents.com/",
   introItems = [
     {
-      title: "Services",
-      href: "https://www.launchuicomponents.com/",
+      title: "Služby",
+      href: "./",
       description:
-        "Choose the service you need right now.",
+        "Vyberte si službu, kterou potřebujete právě teď.",
     },
     {
       title: "Pricing",
